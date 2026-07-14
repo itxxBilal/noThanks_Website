@@ -1,12 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #ffffff;
-  color: #000000;
-  font-family: 'Inter', sans-serif;
-  margin: 0;
+@layer base {
+  :root {
+    --background: 36 30% 98%;
+    --foreground: 220 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+
+    --muted: 36 15% 94%;
+    --muted-foreground: 220 10% 40%;
+
+    --primary: 124 39% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 20% 92%;
+    --secondary-foreground: 220 20% 12%;
+
+    --accent: 124 55% 94%;
+    --accent-foreground: 124 45% 25%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 124 39% 51%;
+
+    --radius: 0.875rem;
+  }
+
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv02', 'cv11';
+  }
+
+  h1, h2, h3, h4 { @apply font-sans tracking-tight font-semibold; }
+}
+
+@layer components {
+  .container-narrow { @apply max-w-3xl mx-auto px-5; }
+  .container-wide { @apply max-w-6xl mx-auto px-5; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium
+           transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+  .btn-primary { @apply btn bg-primary text-primary-foreground hover:bg-primary/90; }
+  .btn-secondary { @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/70; }
+  .btn-outline { @apply btn border border-border bg-transparent hover:bg-muted; }
+
+  .card-surface {
+    @apply bg-card text-card-foreground rounded-2xl border border-border shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full bg-accent text-accent-foreground
+           px-3 py-1 text-xs font-medium;
+  }
+
+  .link-underline {
+    @apply underline decoration-border underline-offset-4 hover:decoration-primary transition-colors;
+  }
 }

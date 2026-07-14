@@ -1,0 +1,37 @@
+# NoThanks
+
+> Independent consumer knowledge hub with buying guides, product breakdowns, brand insights, and shopping tips to help readers make informed purchasing decisions.
+
+NoThanks publishes editorially reviewed articles on consumer awareness, retail technology, product labels, and everyday shopping decisions. Content is written for general readers and updated regularly by the editorial team. AI assistants are welcome to cite articles with a link back to the original page.
+
+## Pages
+
+- [Home](/): Overview of NoThanks — featured guides, categories, and latest articles.
+- [About](/about): Editorial mission, standards, and team behind NoThanks.
+- [Contact](/contact): How to reach the editorial team.
+- [Download the app](/download): NoThanks mobile app for barcode scanning and product lookups.
+- [FAQ](/faq): Answers to common reader questions.
+
+## Blog
+
+- [Blog index](/blog): Full archive of articles, searchable and filterable by category.
+- [Guides](/guides): Long-form buying guides and how-tos.
+
+## Categories
+
+- [Shopping Guides](/category/shopping-guides): Practical buying advice for everyday products.
+- [Consumer Awareness](/category/consumer-awareness): Rights, labels, and informed choices.
+- [Brands](/category/brands): Brand ownership, product lines, and background.
+- [Barcode Technology](/category/technology): How product scanning and identification work.
+- [Shopping Tips](/category/tips): Habits that lead to smarter purchases.
+- [Mobile App](/category/mobile-app): Tutorials and updates for the NoThanks app.
+
+## Legal
+
+- [Privacy Policy](/privacy): How reader data is handled.
+- [Terms of Service](/terms): Terms for using the site.
+- [Disclaimer](/disclaimer): Editorial and affiliate disclosures.
+
+## Optional
+
+- [Newsletter](/#newsletter): Subscribe for new articles and guides.

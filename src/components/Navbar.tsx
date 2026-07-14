@@ -1,101 +1,60 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import LogoImage from '../assets/logo.jpeg';
+import logo from '@/assets/logo.jpeg.asset.json';
 
-const navItems = [
+
+const nav = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Products', path: '/products' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Guides', path: '/guides' },
   { name: 'Download', path: '/download' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
 ];
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="bg-primary text-white fixed w-full top-0 z-50 shadow-md"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <motion.img
-            src={LogoImage}
-            alt="Logo"
-            className="w-10 h-10 rounded-full object-cover"
-            whileHover={{ scale: 1.05 }}
-          />
-          <span className="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            NoThanks
-          </span>
+    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+      <div className="container-wide flex items-center justify-between h-16">
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo.url} alt="NoThanks logo" className="h-9 w-9 rounded-lg" />
+          <span className="font-sans text-xl font-bold tracking-tight">NoThanks<span className="text-primary">.</span></span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.name}
-              to={item.path}
+
+        <nav className="hidden md:flex items-center gap-7">
+          {nav.map((i) => (
+            <NavLink key={i.path} to={i.path} end={i.path === '/'}
               className={({ isActive }) =>
-                `relative text-base font-medium transition-all duration-200 group ${
-                  isActive ? 'text-white' : 'text-gray-300 hover:text-white'
-                }`
-              }
-            >
-              {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                `text-sm transition-colors ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}>
+              {i.name}
             </NavLink>
           ))}
-        </div>
+          <Link to="/download" className="btn-primary">Get App</Link>
+        </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+        <button className="md:hidden p-2" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-primary/95 backdrop-blur-md shadow-md"
-          >
-            <div className="flex flex-col items-center gap-6 py-5 px-4">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `text-lg font-medium ${
-                      isActive
-                        ? 'text-white underline underline-offset-4'
-                        : 'text-gray-300 hover:text-white'
-                    }`
-                  }
-                >
-                  {item.name}
-                </NavLink>
+        {open && (
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }} className="md:hidden border-t border-border overflow-hidden">
+            <div className="container-wide py-4 flex flex-col gap-3">
+              {nav.map((i) => (
+                <NavLink key={i.path} to={i.path} onClick={() => setOpen(false)}
+                  className="py-2 text-foreground">{i.name}</NavLink>
               ))}
+              <Link to="/download" className="btn-primary w-fit" onClick={() => setOpen(false)}>Get App</Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </header>
   );
-};
-
-export default Navbar;
+}
