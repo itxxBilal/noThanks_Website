@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.jpeg.asset.json';
+import logo from '@/assets/logo.jpeg';
 
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container-wide py-12 grid gap-10 md:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo.url} alt="NoThanks logo" className="h-9 w-9 rounded-lg" />
+            <img src={logo} alt="NoThanks logo" className="h-9 w-9 rounded-lg" />
             <span className="font-sans text-xl font-bold tracking-tight">NoThanks<span className="text-primary">.</span></span>
           </Link>
           <p className="mt-3 text-sm text-muted-foreground max-w-xs">

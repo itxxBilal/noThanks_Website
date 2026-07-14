@@ -1,6 +1,6 @@
 import SEO from '@/components/SEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import logo from '@/assets/logo.jpeg.asset.json';
+import logo from '@/assets/logo.jpeg';
 
 export default function Privacy() {
   return (
@@ -8,7 +8,7 @@ export default function Privacy() {
       <SEO title="Privacy Policy | NoThanks" canonical="/privacy" />
       <div className="container-narrow py-14 prose prose-lg max-w-none">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Privacy' }]} />
-        <img src={logo.url} alt="NoThanks logo" className="h-14 w-14 rounded-xl not-prose mt-4" />
+        <img src={logo} alt="NoThanks logo" className="h-14 w-14 rounded-xl not-prose mt-4" />
         <h1>Privacy Policy</h1>
 
         <p><em>Last updated: {new Date().toLocaleDateString()}</em></p>

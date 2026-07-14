@@ -1,6 +1,6 @@
 import SEO from '@/components/SEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import logo from '@/assets/logo.jpeg.asset.json';
+import logo from '@/assets/logo.jpeg';
 import { BookOpen, Compass, ShieldCheck, Users } from 'lucide-react';
 
 
@@ -11,7 +11,7 @@ export default function About() {
         description="Learn about NoThanks: our mission to help consumers make informed decisions, our editorial standards, data sources, and commitment to transparency." />
       <div className="container-narrow py-16">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
-        <img src={logo.url} alt="NoThanks logo" className="h-16 w-16 rounded-2xl mt-6" />
+        <img src={logo} alt="NoThanks logo" className="h-16 w-16 rounded-2xl mt-6" />
         <h1 className="text-5xl mt-4 mb-6">About NoThanks</h1>
 
         <p className="text-lg text-muted-foreground mb-10">

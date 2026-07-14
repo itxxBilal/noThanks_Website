@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/assets/logo.jpeg.asset.json';
+import logo from '@/assets/logo.jpeg';
 
 
 const nav = [
@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
       <div className="container-wide flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo.url} alt="NoThanks logo" className="h-9 w-9 rounded-lg" />
+          <img src={logo} alt="NoThanks logo" className="h-9 w-9 rounded-lg" />
           <span className="font-sans text-xl font-bold tracking-tight">NoThanks<span className="text-primary">.</span></span>
         </Link>
 

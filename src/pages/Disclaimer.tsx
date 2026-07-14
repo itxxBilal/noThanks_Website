@@ -1,6 +1,6 @@
 import SEO from '@/components/SEO';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import logo from '@/assets/logo.jpeg.asset.json';
+import logo from '@/assets/logo.jpeg';
 
 export default function Disclaimer() {
   return (
@@ -8,7 +8,7 @@ export default function Disclaimer() {
       <SEO title="Disclaimer | NoThanks" canonical="/disclaimer" />
       <div className="container-narrow py-14 prose prose-lg max-w-none">
         <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Disclaimer' }]} />
-        <img src={logo.url} alt="NoThanks logo" className="h-14 w-14 rounded-xl not-prose mt-4" />
+        <img src={logo} alt="NoThanks logo" className="h-14 w-14 rounded-xl not-prose mt-4" />
         <h1>Disclaimer</h1>
 
         <p>Content on NoThanks is published for general informational and educational purposes only. It is not intended as legal, financial, medical, or professional advice.</p>
